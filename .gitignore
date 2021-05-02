@@ -16,4 +16,7 @@ app.db
 # Virtualenv
 env/
 
+#
+migrations/
+
 
