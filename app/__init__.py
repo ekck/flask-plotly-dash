@@ -2,6 +2,7 @@ import dash
 from flask import Flask
 from flask.helpers import get_root_path
 from flask_login import login_required
+from flask_bootstrap import Bootstrap
 
 from config import BaseConfig
 
@@ -47,11 +48,14 @@ def register_extensions(server):
     from app.extensions import db
     from app.extensions import login
     from app.extensions import migrate
+    from app.extensions import bootstrap
 
     db.init_app(server)
     login.init_app(server)
     login.login_view = 'main.login'
     migrate.init_app(server, db)
+    bootstrap.init_app(server)
+
 
 def register_blueprints(server):
     from app.webapp import server_bp
